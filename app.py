@@ -3,9 +3,9 @@ from flask_cors import CORS
 import g4f
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-@app.route('/answer', methods=['POST'])
+@app.route('/api/answer', methods=['POST'])
 def answer():
     prompt = request.json['prompt']
     print(prompt);
