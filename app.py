@@ -3,14 +3,14 @@ from flask_cors import CORS
 import g4f
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/answer*": {"origins": "*"}})
 
 @app.route('/api/answer', methods=['POST'])
 def answer():
     prompt = request.json['prompt']
     print(prompt);
     response = g4f.ChatCompletion.create(
-    model=g4f.models.gpt_4,
+    model=g4f.models.gpt_35_turbo_16k_0613,
     messages=[{"role": "user", "content": prompt}])
     return jsonify({'response': response})
 
