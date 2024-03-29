@@ -10,7 +10,7 @@ def answer():
     prompt = request.json['prompt']
     print(prompt);
     response = g4f.ChatCompletion.create(
-    model=g4f.models.gpt_35_long,
+    model=g4f.models.gemini_pro,
     messages=[{"role": "user", "content": prompt}])
     return jsonify({'response': response})
 
