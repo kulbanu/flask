@@ -9,8 +9,8 @@ CORS(app, resources={r"/api/answer*": {"origins": "*"}})
 def answer():
     prompt = request.json['prompt']
     print(prompt);
-    response = g4f.ChatCompletion.create(
-    model=g4f.models.gemini_pro,
+    response = g4f.ChatCompletion.create( 
+    model=g4f.models.gpt_35_turbo_16k,
     messages=[{"role": "user", "content": prompt}])
     return jsonify({'response': response})
 
